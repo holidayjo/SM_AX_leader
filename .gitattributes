@@ -1,0 +1,9 @@
+# Keep binary training/reference files from being treated as text diffs.
+*.docx binary
+*.hwpx binary
+*.pdf binary
+*.png binary
+*.xlsx binary
+*.zip binary
+*.Zip binary
+

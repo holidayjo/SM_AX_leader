@@ -1,0 +1,31 @@
+# Local workspace metadata
+.git-local/
+.agents/
+.codex/
+.omc/
+**/.omc/
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# .NET build output
+**/bin/
+**/obj/
+*.user
+*.suo
+.vs/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Generated executables
+*.exe
