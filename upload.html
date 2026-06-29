@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>n8n 파일 업로드</title>
+</head>
+<body>
+  <h2>파일 업로드</h2>
+
+  <form id="uploadForm">
+    <input type="file" id="fileInput" name="file" required />
+    <button type="submit">업로드</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    const webhookUrl = "https://ossam1996.app.n8n.cloud/webhook-test/upload";
+
+    document.getElementById("uploadForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const fileInput = document.getElementById("fileInput");
+      const result = document.getElementById("result");
+
+      if (!fileInput.files.length) {
+        result.textContent = "파일을 선택하세요.";
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      try {
+        result.textContent = "업로드 중...";
+
+        const response = await fetch(webhookUrl, {
+          method: "POST",
+          body: formData
+        });
+
+        const text = await response.text();
+
+        if (response.ok) {
+          result.textContent = "업로드 성공: " + text;
+        } else {
+          result.textContent = "업로드 실패: " + response.status + " / " + text;
+        }
+      } catch (error) {
+        result.textContent = "에러 발생: " + error.message;
+      }
+    });
+  </script>
+</body>
+</html>
