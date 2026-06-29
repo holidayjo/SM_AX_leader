@@ -21,8 +21,13 @@ Generated build folders such as `bin/` and `obj/` are intentionally ignored. Exe
 After creating an empty repository on GitHub, connect this local folder with:
 
 ```bash
-GIT_DIR=.git-local GIT_WORK_TREE=. git remote add origin <your-github-repository-url>
-GIT_DIR=.git-local GIT_WORK_TREE=. git push -u origin main
+git remote add origin <your-github-repository-url>
+git push -u origin main
 ```
 
-This workspace has an empty read-only `.git/` placeholder, so the local Git metadata is stored in `.git-local/`. Use the same `GIT_DIR=.git-local GIT_WORK_TREE=.` prefix for local Git commands in this folder.
+For example:
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/SM_AX_leader.git
+git push -u origin main
+```
